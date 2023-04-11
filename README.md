@@ -2,7 +2,7 @@
 
 Welcome to the Weather-Application! 
 
-To get started, simply download the files and run the command 'npm run dev' in your terminal. The web page features a sleek header with the app name and a user-friendly navbar. The navbar includes a search input for your desired location and a convenient dropdown menu for your favorites.
+To get started, simply download the files, run the command 'npm install' in your terminal and then the command 'npm run dev'. The web page features a sleek header with the app name and a user-friendly navbar. The navbar includes a search input for your desired location and a convenient dropdown menu for your favorites.
 
 Once you've found your preferred location, add it to your favorites with the click of a button, so in the future you don’t have search it again, you can simply click on it and the information for your favorite location will be displayed. If you change your mind, simply remove it by clicking on the 'X' button aligned with that location.
 
