@@ -8,6 +8,6 @@ Once you've found your preferred location, add it to your favorites with the cli
 
 The main section offers a wealth of information on your selected location's weather. You'll find an icon, temperature, description, and other details like high and low temperatures, wind speed, and feels-like temperature. To begin with your current location’s weather, ensure that geolocation is turned on in your browser. Additionally, there is a section for daily weather forecasts for the next 7 days. Each day displays an icon, the day of the week, and the high temperature. 
 
-Lastly, we include a table with hourly weather forecasts for the next 24 hours, featuring an icon, the time of day (in local time zone), temperature, feels-like temperature and description (on screens larger than 'small').
+Lastly, there is a table with hourly weather forecasts for the next 24 hours, featuring an icon, the time of day (in local time zone), temperature, feels-like temperature and description (on screens larger than 'small').
 
 
