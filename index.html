@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+    <link rel="shortcut icon" href="icons/weather.svg" type="image/x-icon" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body class="blurred">
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+      <heading>
+        <h1 class="text-center p-3 bg-info-subtle">
+          Your favorite weather app
+        </h1>
+      </heading>
+
+      <nav class="navbar navbar-expand-sm bg-body-tertiary align-items-center">
+        <div class="container-fluid px-0">
+          <div
+            class="dropdown-center favorites align-items-center mt-0 order-2 order-sm-1 mb-2 mb-sm-0"
+          >
+            <button
+              class="btn btn-secondary btn-md dropdown-toggle d-flex align-items-center"
+              type="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Favorites
+            </button>
+            <ul class="dropdown-menu"></ul>
+          </div>
+
+          <section class="d-flex order-1 order-sm-2 mb-2 mb-sm-0" role="search">
+            <input
+              id="searchInput"
+              type="search"
+              placeholder="Search Location"
+              class="form-control me-2"
+            />
+            <button id="searchBtn" type="submit" class="btn btn-warning">
+              Search
+            </button>
+          </section>
+        </div>
+      </nav>
+
+      <button class="add-to-favorites btn btn-outline-secondary" type="button">
+        Add to Favorites
+      </button>
+
+      <section class="main-info">
+        <article class="text-center p-3">
+          <div>
+            <h1 class="location" id="location">Location</h1>
+            <img
+              class="weather-icon-large"
+              src="icons/day.svg"
+              data-current-icon
+            />
+            <div class="h1 align-items-center">
+              <span id="temperature">Temperature</span>&deg;
+            </div>
+            <p class="h2" id="description">Description</p>
+          </div>
+
+          <div>
+            <div class="info">
+              <div class="label">High</div>
+              <div><span id="data-current-high">32</span>&deg;</div>
+            </div>
+            <div class="info">
+              <div class="label">Low</div>
+              <div><span id="data-current-min">19</span>&deg;</div>
+            </div>
+            <div class="info">
+              <div class="label">Wind</div>
+              <div>
+                <span id="data-current-wind">9</span
+                ><span class="value-sub-info">km/h</span>
+              </div>
+            </div>
+            <div class="info">
+              <div class="label">Feels Like</div>
+              <div><span id="data-current-fl">5</span>&deg;</div>
+            </div>
+          </div>
+        </article>
+
+        <hr class="my-4 bg-info" style="height: 3px" />
+
+        <article class="day-section" data-day-section>
+          <div class="day-card">
+            <div class="day-card-day">Monday</div>
+            <img src="icons/cloudy.svg" class="weather-icon" />
+            <div>32&deg;</div>
+          </div>
+        </article>
+
+        <template id="day-card-template">
+          <div class="day-card">
+            <div class="day-card-day" data-date-day></div>
+            <img
+              src="icons/cloudy-day-1.svg"
+              class="weather-icon"
+              data-icon-day
+            />
+            <div><span data-temp-day></span> <span>&deg;</span></div>
+          </div>
+        </template>
+      </section>
+
+      <template class="day-section table py-0" id="day-section">
+        <tr class="hour-row mb-2 p-3 d-flex gap-3 justify-content-between">
+          <td
+            class="d-flex col-2 align-items-center justify-content-center"
+            data-time-hourly
+          ></td>
+          <td class="d-flex col-2 align-items-center justify-content-center">
+            <img src="icons/cloudy.svg" class="weather-icon" data-icon-hourly />
+          </td>
+
+          <td class="col-2 d-flex align-items-center justify-content-center">
+            <div>
+              <div class="label text-center">Temp</div>
+              <div class="text-center">
+                <span data-temp-hourly></span> <span>&deg;</span>
+              </div>
+            </div>
+          </td>
+          <td class="col-2 d-flex align-items-center justify-content-center">
+            <div>
+              <div class="label text-center">Feels Like</div>
+              <div class="text-center">
+                <span data-feels-like-temp-hourly></span> <span>&deg;</span>
+              </div>
+            </div>
+          </td>
+
+          <td
+            class="col-2 d-none d-sm-flex align-items-center justify-content-center"
+          >
+            <div>
+              <div class="label text-center">Description:</div>
+              <div class="text-center">
+                <span data-description-hourly></span>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </template>
+
+      <section class="card mb-2 p-3 d-flex gap-3">
+        <h5 class="card-body card-title text-center">
+          The forecast for the next 24 hours
+        </h5>
+        <section class="card-body" id="forecast"></section>
+      </section>
+
+      <footer class="mt-auto text-black-50 text-center">
+        <p>Andrei Raducanu &copy; 2023</p>
+      </footer>
+    </div>
+    <script type="module" src="/main.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
